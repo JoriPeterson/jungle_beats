@@ -6,16 +6,31 @@ class LinkedList
 	end
 
 	def append(data)
-		@head = Node.new(data)
+		new_node = Node.new(data)
+		if @head.nil?
+			@head = new_node
+		elsif @head.next_node.nil?
+			@head.next_node = new_node
+		end
 	end
 
 	def count
-		list = []
-		list << @head
-		list.count
+		length = 0
+			current_node = @head
+			until current_node.nil?
+				length += 1
+				current_node = current_node.next_node
+			end
+		length
 	end
 
 	def to_string
-		@head.data
+		string = ""
+		current_node = @head
+		until current_node.nil?
+			string << "#{current_node.data} "
+			current_node = current_node.next_node
+		end
+		string.strip
 	end
 end

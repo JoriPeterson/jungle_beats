@@ -18,13 +18,23 @@ class LinkedListTest < Minitest::Test
 	end
 
 	def test_it_appends
-		assert "doop", @list.append("doop")
+		@list.append("doop")
+		assert_equal "doop", @list.head.data
 	end
 
 	def test_list_properties
 		@list.append("doop")
 		assert_nil @list.head.next_node
-		assert 1, @list.count
-		assert "doop", @list.to_string
+		assert_equal 1, @list.count
+		assert_equal "doop", @list.to_string
+	end
+
+	def test_it_can_append_next_node
+		@list.append("doop")
+		@list.append("deep")
+		assert_equal @list.head.next_node.data, "deep"
+		assert_nil @list.head.next_node.next_node
+		assert_equal 2, @list.count
+		assert_equal "doop deep", @list.to_string
 	end
 end
