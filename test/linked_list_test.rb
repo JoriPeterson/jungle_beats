@@ -25,6 +25,6 @@ class LinkedListTest < Minitest::Test
 		@list.append("doop")
 		assert_nil @list.head.next_node
 		assert 1, @list.count
-		assert "doop", @list.to_s
+		assert "doop", @list.to_string
 	end
 end
