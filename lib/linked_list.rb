@@ -20,6 +20,17 @@ class LinkedList
 		@head.next_node = current_head
 	end
 
+	def insert(index, data)
+		current = @head
+		(index -1).times do
+			current = current.next_node
+		end
+
+		new_node = Node.new(data)
+		new_node.next_node = current.next_node
+		current.next_node = new_node	
+	end
+
 	def count
 		length = 0
 			current_node = @head
