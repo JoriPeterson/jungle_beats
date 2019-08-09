@@ -1,5 +1,5 @@
 class LinkedList
-	attr_reader :head
+	attr_accessor :head
 
 	def initialize
 		@head = nil
@@ -67,7 +67,7 @@ class LinkedList
 		# if current_node.next_node = nil
 		# 	current_node = nil
 		# end
-		
+
 		current_node = @head
 		until current_node.next_node.nil?
 			current_node = current_node.next_node
