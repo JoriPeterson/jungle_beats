@@ -6,11 +6,14 @@ class LinkedList
 	end
 
 	def append(data)
-		new_node = Node.new(data)
 		if @head.nil?
-			@head = new_node
-		elsif @head.next_node.nil?
-			@head.next_node = new_node
+			@head = Node.new(data)
+		else
+		current_node = @head
+			until current_node.next_node.nil?
+				current_node = current_node.next_node
+			end
+		current_node.next_node = Node.new(data)
 		end
 	end
 
@@ -28,7 +31,7 @@ class LinkedList
 
 		new_node = Node.new(data)
 		new_node.next_node = current.next_node
-		current.next_node = new_node	
+		current.next_node = new_node
 	end
 
 	def count
@@ -49,5 +52,31 @@ class LinkedList
 			current_node = current_node.next_node
 		end
 		string.strip
+	end
+
+	def find(index, num_of_elements)
+		array = self.to_string.split(" ")
+		array[index]
+	end
+
+	def pop
+		# current_node = @head
+		# until current_node.next_node.nil?
+		# 	current_node = current_node.next_node
+		# end
+		# if current_node.next_node = nil
+		# 	current_node = nil
+		# end
+		
+		current_node = @head
+		until current_node.next_node.nil?
+			current_node = current_node.next_node
+			current_node = current_node.next_node
+			current_node.next_node = nil
+		end
+	end
+
+	def includes?(data)
+		self.to_string.include?(data)
 	end
 end
