@@ -56,24 +56,17 @@ class LinkedList
 
 	def find(index, num_of_elements)
 		array = self.to_string.split(" ")
-		array[index]
+		array[index..index + num_of_elements - 1].join(" ")
 	end
 
 	def pop
-		# current_node = @head
-		# until current_node.next_node.nil?
-		# 	current_node = current_node.next_node
-		# end
-		# if current_node.next_node = nil
-		# 	current_node = nil
-		# end
-
 		current_node = @head
-		until current_node.next_node.nil?
+		prev_node = @head
+		until prev_node.nil? || current_node.next_node.nil?
+			prev_node = current_node
 			current_node = current_node.next_node
-			current_node = current_node.next_node
-			current_node.next_node = nil
 		end
+		prev_node.next_node = nil
 	end
 
 	def includes?(data)

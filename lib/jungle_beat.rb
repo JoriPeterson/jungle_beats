@@ -20,5 +20,19 @@ class JungleBeat
 		end
 	end
 
+	def count
+		length = 0
+			current_node = @list.head
+			until current_node.nil?
+				length += 1
+				current_node = current_node.next_node
+			end
+		length
+	end
+
+	def play
+		beats = @list.to_string
+		`say -r 500 #{beats}`
+	end
 
 end

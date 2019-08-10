@@ -23,6 +23,14 @@ class JungleBeatTest < Minitest::Test
 		assert_equal "deep", @jb.list.head.data
 		assert_equal "doo", @jb.list.head.next_node.data
 		@jb.append("woo hoo shu")
-		# assert_equal 6, @jb.count
+		assert_equal 6, @jb.count
+	end
+
+	def test_it_can_play
+		@jb.append("deep doo ditt woo hoo shu")
+		assert_equal 6, @jb.count
+		assert_equal 6, @jb.list.count
+		@jb.play
+		#plays the sounds above
 	end
 end
