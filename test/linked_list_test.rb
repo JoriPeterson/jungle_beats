@@ -76,5 +76,11 @@ class LinkedListTest < Minitest::Test
 		@list.pop
 		@list.pop
 		assert_equal "deep woo shi", @list.to_string
+		@list.pop
+		@list.pop
+		@list.pop
+		assert " ", @list.to_string
+		@list.pop #attempt to pop on empty
+		assert " ", @list.to_string
 	end
 end
